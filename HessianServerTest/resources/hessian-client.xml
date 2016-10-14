@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="hessianClient" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="proxyFactory" ref="hessianProxyFactory" ></property>
+		<property name="serviceUrl">
+			<value>http://localhost:80/HessianServer/hessian/service</value>
+		</property>
+		<property name="serviceInterface">
+			<value>com.service.HelloService</value>
+		</property>
+	</bean>
+	<!-- 带密码的 -->
+	<bean id="hessianProxyFactory" class="com.caucho.hessian.client.HessianProxyFactory" >
+		<property name="user" value="12345"></property>
+		<property name="password" value="12345" ></property>
+	</bean>
+</beans>
