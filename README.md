@@ -1,3 +1,5 @@
 # HessianTest
-初始化
+
 spring与Hessian结合
+HessianServer 属于服务端
+HessianServerTest 客户端
